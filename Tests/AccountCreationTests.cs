@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NUnit.Framework;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
 
 namespace mantis_tests
 {
     [TestFixture]
     class AccountCreationTests : TestBase
     {
-        [TestFixtureSetUp]
+        [SetUp]
 
         public void setUpConfig()
         {
@@ -20,13 +16,13 @@ namespace mantis_tests
             using (Stream localFile = File.Open(localPath, FileMode.Open))
             {
                 app.Ftp.Upload("/config_inc.php", localFile);
-            }     
+            }
         }
 
         public static Random r = new Random();
 
         [Test]
-        public void TestAccontRegistration() 
+        public void TestAccontRegistration()
         {
             int uniqueNumber = r.Next(0, 999);
             AccountData account = new AccountData()

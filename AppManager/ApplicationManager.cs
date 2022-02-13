@@ -1,9 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using System;
-using System.Management.Instrumentation;
-using System.Text;
 using System.Threading;
 
 namespace mantis_tests
@@ -16,21 +13,28 @@ namespace mantis_tests
         public FtpHelper Ftp { get; set; }
         public JamesHelper James { get; set; }
         public MailHelper Mail { get; set; }
+        public LoginHelper Login { get; set; }
+        public ManageMenuHelper Menu { get; set; }
+        public ProjectManageHelper Project { get; set; }
+        public IWebDriver Driver { get; }
 
-    private static readonly ThreadLocal<ApplicationManager> App = new ThreadLocal<ApplicationManager>();
+        private static readonly ThreadLocal<ApplicationManager> App = new ThreadLocal<ApplicationManager>();
 
         private ApplicationManager()
         {
             driver = new FirefoxDriver();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
-            baseURL = "http://localhost/addressbook";
+            baseURL = "http://localhost";
             Registration = new RegistrationHelper(this);
             Ftp = new FtpHelper(this);
             James = new JamesHelper(this);
             Mail = new MailHelper(this);
+            Login = new LoginHelper(this);
+            Menu = new ManageMenuHelper(this);
+            Project = new ProjectManageHelper(this);
         }
 
-         ~ApplicationManager()
+        ~ApplicationManager()
         {
             try
             {
@@ -52,7 +56,5 @@ namespace mantis_tests
             }
             return App.Value;
         }
-
-        public IWebDriver Driver { get => driver; set => driver = value; }
     }
 }

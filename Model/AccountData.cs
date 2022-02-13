@@ -9,5 +9,11 @@
         public AccountData()
         {
         }
+
+        public AccountData(string name, string password)
+        {
+            Name = name;
+            Password = password;
+        }
     }
 }
