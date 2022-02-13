@@ -16,7 +16,7 @@ namespace mantis_tests
         public LoginHelper Login { get; set; }
         public ManageMenuHelper Menu { get; set; }
         public ProjectManageHelper Project { get; set; }
-        public IWebDriver Driver { get; }
+        public IWebDriver Driver { get => driver; set => driver = value; }
 
         private static readonly ThreadLocal<ApplicationManager> App = new ThreadLocal<ApplicationManager>();
 

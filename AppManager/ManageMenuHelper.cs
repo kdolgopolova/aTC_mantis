@@ -8,8 +8,8 @@ namespace mantis_tests
 
         public void OpenProjectMenu()
         {
-            driver.FindElement(By.XPath("//a[@href= '/mantisbt-2.25.2/mantisbt-2.25.2/manage_overview_page.php']")).Click();
-            driver.FindElement(By.XPath("//a[@href= '/mantisbt-2.25.2/mantisbt-2.25.2/manage_proj_page.php']")).Click();
+            driver.FindElement(By.XPath("//a[@href= '/mantisbt-2.25.2/manage_overview_page.php']")).Click();
+            driver.FindElement(By.XPath("//a[@href= '/mantisbt-2.25.2/manage_proj_page.php']")).Click();
         }
     }
 }

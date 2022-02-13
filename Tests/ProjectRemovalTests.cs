@@ -30,6 +30,7 @@ namespace mantis_tests
             }
 
             List<ProjectData> oldData = app.Project.GetProjectList();
+            ProjectData projectToRemove = oldData[0];
 
             app.Project.Remove();
 
@@ -37,7 +38,7 @@ namespace mantis_tests
 
             Assert.AreEqual(oldData.Count - 1, newData.Count);
 
-            oldData.Remove(project);
+            oldData.Remove(projectToRemove);
 
             oldData.Sort();
             newData.Sort();

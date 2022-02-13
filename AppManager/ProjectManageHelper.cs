@@ -67,6 +67,7 @@ namespace mantis_tests
         {
             if (projectCache == null)
             {
+                manager.Menu.OpenProjectMenu();
                 projectCache = new List<ProjectData>();
                 ICollection<IWebElement> elements = driver.FindElements(By.XPath("//table[@class='table table-striped table-bordered table-condensed table-hover']/tbody/tr/td/a"));
 
