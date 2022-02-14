@@ -1,18 +1,14 @@
 ﻿using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace mantis_tests
 {
     public class RegistrationHelper : HelperBase
     {
-        public RegistrationHelper(ApplicationManager manager) : base(manager) 
+        public RegistrationHelper(ApplicationManager manager) : base(manager)
         {
-            
+
         }
 
         internal void Register(AccountData account)
