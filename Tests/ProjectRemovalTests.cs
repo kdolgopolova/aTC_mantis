@@ -24,17 +24,18 @@ namespace mantis_tests
             app.Login.Login(account);
             app.Menu.OpenProjectMenu();
 
-            if (app.Project.GetProjectCount() == 0)
+            if (app.Project.GetProjectCount(account) == 0)
             {
-                app.Project.Create(project);
+                //app.Project.Create(project);
+                app.Api.Create(project, account);
             }
 
-            List<ProjectData> oldData = app.Project.GetProjectList();
+            List<ProjectData> oldData = app.Project.GetProjectList(account);
             ProjectData projectToRemove = oldData[0];
 
             app.Project.Remove();
 
-            List<ProjectData> newData = app.Project.GetProjectList();
+            List<ProjectData> newData = app.Project.GetProjectList(account);
 
             Assert.AreEqual(oldData.Count - 1, newData.Count);
 

@@ -19,6 +19,7 @@ namespace mantis_tests
 
         public AdminHelper Admin { get; set; }
         public IWebDriver Driver { get => driver; set => driver = value; }
+        public APIHelper Api { get; set; }
 
         private static readonly ThreadLocal<ApplicationManager> App = new ThreadLocal<ApplicationManager>();
 
@@ -35,6 +36,7 @@ namespace mantis_tests
             Menu = new ManageMenuHelper(this);
             Project = new ProjectManageHelper(this);
             Admin = new AdminHelper(this, baseURL);
+            Api = new APIHelper(this);
         }
 
         ~ApplicationManager()
